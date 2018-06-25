@@ -8,7 +8,7 @@ function getAllUsrs() {
   //   })
   // ******************************************** /using JS fetch instead of jQuery
 
-  fetch(BASE_URL + "/employees", { type: "GET" })
+  fetch("http://dummy.restapiexample.com/api/v1" + "/employees", { type: "GET" })
     .then(function(response) {
       return response.json();
     })
@@ -64,7 +64,7 @@ function details(id) {
   //     return item;
   //   })
   // ******************************************** /using JS fetch instead of jQuery
-  fetch(BASE_URL + "/employee/" + id, { type: "GET" })
+  fetch("http://dummy.restapiexample.com/api/v1" + "/employee/" + id, { type: "GET" })
     .then(function(response) {
       return response.json();
     })
@@ -102,7 +102,7 @@ function details(id) {
 
 function editRecord(id) {
   loading(true);
-  $.getJSON(BASE_URL + "/employee/" + id).then(function(result) {
+  $.getJSON("http://dummy.restapiexample.com/api/v1" + "/employee/" + id).then(function(result) {
     var template = bindModalTemplate(modalDataTemplate, result);
     modalLoader.innerHTML =
       template + blockUITemplate.replace("{{none}}", "block");
@@ -125,7 +125,7 @@ function saveEditedRecord(id) {
   };
 
   $.ajax({
-    url: BASE_URL + request.apiRoute,
+    url: "http://dummy.restapiexample.com/api/v1" + request.apiRoute,
     type: request.type,
     data: JSON.stringify(updatedData),
     success: function(result) {
@@ -152,7 +152,7 @@ function createRecord(id) {
     age: "25"
   };
   $.ajax({
-    url: BASE_URL + "/create",
+    url: "http://dummy.restapiexample.com/api/v1" + "/create",
     type: "POST",
     data: JSON.stringify(data),
     success: function(result) {
